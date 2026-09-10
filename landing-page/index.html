@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Le Tilleul de Canac — chambre d'hôtes près de Rodez</title>
+  <meta name="description" content="Le Tilleul de Canac : chambre d'hôtes à Onet-le-Château, aux portes de Rodez. Chambre familiale, petit-déjeuner maison, jardin et parking gratuit." />
+  <link rel="canonical" href="https://vlldnt.fr/tilleul-canac/" />
+  <link rel="icon" type="image/svg+xml" href="/tilleul-canac/favicon.svg" />
+  <link rel="apple-touch-icon" href="/tilleul-canac/favicon.svg" />
+  <meta name="theme-color" content="#f7f3ec" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#14171a" media="(prefers-color-scheme: dark)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vlldnt.fr/tilleul-canac/" />
+  <meta property="og:title" content="Le Tilleul de Canac — chambre d'hôtes près de Rodez" />
+  <meta property="og:description" content="Chambre familiale, petit-déjeuner maison, jardin et parking gratuit à Onet-le-Château." />
+  <style>
+    /* ==== Charte Le Tilleul de Canac (reprise de src/index.css) ========= */
+    :root {
+      --bg: #f7f3ec;
+      --bg-alt: #efe7da;
+      --surface: #fffdf9;
+      --text: #2b2b28;
+      --text-muted: #5c5c54;
+      --border: #ddd3c1;
+      --heading: #2d4632;
+      --accent: #8f4f16;
+      --btn-bg: #3a5a40;
+      --btn-bg-hover: #2d4632;
+      --btn-fg: #ffffff;
+      --focus: #6f3f13;
+      --radius: 12px;
+      --shadow: 0 8px 28px rgba(45, 70, 50, 0.12);
+      --container: 1080px;
+      --font-serif: "Cormorant Garamond", "Iowan Old Style", Georgia, "Times New Roman", serif;
+      --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color-scheme: light;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #14171a; --bg-alt: #1a1e21; --surface: #1e2327;
+        --text: #e7e4db; --text-muted: #a9a99f; --border: #333a3b;
+        --heading: #a8ccac; --accent: #e39463;
+        --btn-bg: #6fa377; --btn-bg-hover: #7fb187; --btn-fg: #10201a;
+        --focus: #eeac82;
+        --shadow: 0 8px 28px rgba(0, 0, 0, 0.4);
+        color-scheme: dark;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    :focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
+
+    .wrap { max-width: 42rem; margin: 0 auto; padding: clamp(28px, 7vw, 72px) 22px clamp(48px, 12vw, 96px); }
+
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand svg { width: 34px; height: 34px; }
+    .brand span {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      color: var(--heading);
+      letter-spacing: 0.01em;
+    }
+
+    .eyebrow {
+      margin: clamp(36px, 9vw, 64px) 0 0;
+      font-size: 0.82rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    h1 {
+      margin: 12px 0 0;
+      font-family: var(--font-serif);
+      font-weight: 600;
+      font-size: clamp(2.4rem, 9vw, 4rem);
+      line-height: 1.05;
+      color: var(--heading);
+      letter-spacing: -0.01em;
+    }
+    .sub {
+      margin: 18px 0 0;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(1.1rem, 3.4vw, 1.5rem);
+      color: var(--text);
+      max-width: 30ch;
+    }
+    .lead { margin: 22px 0 0; color: var(--text-muted); max-width: 52ch; }
+
+    .actions { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 22px; border-radius: 999px;
+      font-weight: 600; font-size: 0.95rem; text-decoration: none;
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+    .btn-primary { background: var(--btn-bg); color: var(--btn-fg); }
+    .btn-primary:hover { background: var(--btn-bg-hover); transform: translateY(-2px); }
+    .btn-ghost { border: 1px solid var(--border); color: var(--text); background: var(--surface); }
+    .btn-ghost:hover { border-color: var(--heading); transform: translateY(-2px); }
+
+    .facts {
+      margin-top: clamp(40px, 10vw, 64px);
+      display: grid; gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .fact { background: var(--surface); padding: 16px 18px; }
+    .fact dt { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
+    .fact dd { margin: 4px 0 0; font-family: var(--font-serif); font-size: 1.15rem; color: var(--heading); }
+    @media (min-width: 460px) { .facts { grid-template-columns: 1fr 1fr; } }
+
+    address {
+      margin-top: 28px;
+      font-style: normal;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    address a { color: var(--accent); text-decoration: none; }
+
+    footer {
+      margin-top: clamp(44px, 11vw, 72px);
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      display: flex; flex-wrap: wrap; gap: 6px 16px;
+      font-size: 0.8rem; color: var(--text-muted);
+    }
+    footer a { text-decoration: none; }
+    footer a:hover { color: var(--heading); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="brand">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <path fill="#3a5a40" d="M32 5c7 8 19 12 22 26 2 11-9 19-16 20-3 .5-5-2-6-5-1 3-3 5.5-6 5-7-1-18-9-16-20C6.9 17 25 13 32 5Z"/>
+        <g fill="none" stroke="#dff0e0" stroke-width="2" stroke-linecap="round">
+          <path d="M32 46V10"/>
+          <path d="M32 22 46 14M32 22 19 15M32 31 49 24M32 31 16 25M32 39 44 34M32 39 21 33"/>
+        </g>
+        <path fill="none" stroke="#7a5230" stroke-width="3.2" stroke-linecap="round" d="M32 46c0 6 0 9 1 15"/>
+      </svg>
+      <span>Le Tilleul de Canac</span>
+    </div>
+
+    <p class="eyebrow">Chambre d'hôtes · Aveyron</p>
+    <h1>Une chambre au calme, aux portes de Rodez.</h1>
+    <p class="sub">Onet-le-Château, à quelques minutes du centre.</p>
+    <p class="lead">
+      Chambre familiale dans une maison de campagne, petit-déjeuner maison,
+      grand jardin arboré et parking gratuit. Un point de départ tranquille pour
+      visiter Rodez, Conques et les gorges de l'Aveyron.
+    </p>
+
+    <div class="actions">
+      <a class="btn btn-primary" href="https://www.booking.com/hotel/fr/chambre-d-39-hote-rodez.fr.html">
+        Réserver sur Booking
+        <svg width="15" height="15" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M5 10h10M11 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a class="btn btn-ghost" href="https://tilleul-canac.vlldnt.fr">Voir le site</a>
+    </div>
+
+    <dl class="facts">
+      <div class="fact"><dt>Chambre</dt><dd>Familiale, jusqu'à 4 personnes</dd></div>
+      <div class="fact"><dt>Petit-déjeuner</dt><dd>Maison, inclus</dd></div>
+      <div class="fact"><dt>Jardin &amp; parking</dt><dd>Privés, gratuits</dd></div>
+      <div class="fact"><dt>Rodez centre</dt><dd>≈ 10 min en voiture</dd></div>
+    </dl>
+
+    <address>
+      270 chemin de Canac, 12850 Onet-le-Château ·
+      <a href="tel:+33663713962">06 63 71 39 62</a> ·
+      <a href="mailto:lbcmarie.12@gmail.com">lbcmarie.12@gmail.com</a>
+    </address>
+
+    <footer>
+      <a href="https://tilleul-canac.vlldnt.fr">tilleul-canac.vlldnt.fr</a>
+      <a href="https://vlldnt.fr">vlldnt.fr</a>
+    </footer>
+  </div>
+</body>
+</html>

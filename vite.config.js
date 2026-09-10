@@ -1,9 +1,9 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-// Publié sur https://tomvieilledent.github.io/tilleul_de_canac/
+// Servi à la racine de son sous-domaine (https://tilleul-canac.vlldnt.fr) par nginx.
 export default defineConfig({
-  base: "/tilleul_de_canac/",
+  base: "/",
   plugins: [react()],
   build: {
     // modulepreload est nativement supporté par les navigateurs ciblés :
