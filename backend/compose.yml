@@ -1,0 +1,33 @@
+name: tilleul-canac-api
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-tdc}
+      POSTGRES_USER: ${POSTGRES_USER:-tdc}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-tdc}
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-tdc}"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
+
+  web:
+    build: .
+    env_file: .env
+    depends_on:
+      db:
+        condition: service_healthy
+    command: >
+      sh -c "python manage.py migrate --noinput &&
+             gunicorn config.wsgi:application --bind 0.0.0.0:8000 --workers 3 --access-logfile -"
+    ports:
+      - "127.0.0.1:${PORT:-8083}:8000"
+    restart: unless-stopped
+
+volumes:
+  db-data:
