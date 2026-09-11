@@ -104,6 +104,10 @@ CSRF_TRUSTED_ORIGINS = env_list("CSRF_TRUSTED_ORIGINS") or [
     "https://tilleul-canac-api.vlldnt.fr"
 ]
 
+# Coupe-circuit serveur pour la phase de test (calendrier lecture seule) :
+# indépendant du front, POST /api/bookings refuse tant que ce n'est pas activé.
+BOOKINGS_ENABLED = env_bool("BOOKINGS_ENABLED", False)
+
 # Durée du blocage d'une réservation "pending" avant expiration automatique.
 # Phase 1 (pas de paiement) : validation manuelle par l'hôte → fenêtre large (48h défaut).
 # Phase 2 (Stripe) : ramener à ~30 min, la demande expirant avec le paiement non abouti.

@@ -1,5 +1,6 @@
 from datetime import date
 
+from django.conf import settings
 from django.db import IntegrityError, transaction
 from django.db.models import Q
 from django.http import HttpResponse, JsonResponse
@@ -58,6 +59,12 @@ def availability(request):
 
 @api_view(["POST"])
 def create_booking(request):
+    if not settings.BOOKINGS_ENABLED:
+        return Response(
+            {"detail": "Réservations désactivées pour le moment."},
+            status=status.HTTP_503_SERVICE_UNAVAILABLE,
+        )
+
     serializer = BookingCreateSerializer(data=request.data)
     serializer.is_valid(raise_exception=True)
     data = serializer.validated_data
