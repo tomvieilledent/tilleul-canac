@@ -104,8 +104,10 @@ CSRF_TRUSTED_ORIGINS = env_list("CSRF_TRUSTED_ORIGINS") or [
     "https://api.tilleul-canac.vlldnt.fr"
 ]
 
-# Durée du blocage d'une réservation non payée.
-BOOKING_HOLD_MINUTES = int(os.environ.get("BOOKING_HOLD_MINUTES", "30"))
+# Durée du blocage d'une réservation "pending" avant expiration automatique.
+# Phase 1 (pas de paiement) : validation manuelle par l'hôte → fenêtre large (48h défaut).
+# Phase 2 (Stripe) : ramener à ~30 min, la demande expirant avec le paiement non abouti.
+BOOKING_HOLD_MINUTES = int(os.environ.get("BOOKING_HOLD_MINUTES", "2880"))
 
 # Derrière le reverse-proxy du VPS.
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")

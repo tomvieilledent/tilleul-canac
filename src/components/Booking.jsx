@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { useApp } from "../app/store.jsx";
-import { useJson } from "../hooks/useJson.js";
+import { useAvailability } from "../hooks/useAvailability.js";
 import { BOOKING_URL } from "../lib/site.js";
+import BookingForm from "./BookingForm.jsx";
 import {
   toDate, startOfToday, sameDay, isBooked, monthGrid,
   weekdayNames, monthLabel, longDate, dateTime,
@@ -58,7 +60,8 @@ function Month({ year, month, ranges, today, locale, t, weekdays }) {
 
 export default function Booking() {
   const { t, locale } = useApp();
-  const { data, error } = useJson("data/availability.json");
+  const [refreshKey, setRefreshKey] = useState(0);
+  const { data, error } = useAvailability(refreshKey);
 
   const today = startOfToday();
   const ranges = (data?.booked || []).map((r) => ({ start: toDate(r.start), end: toDate(r.end) }));
@@ -121,6 +124,8 @@ export default function Booking() {
               <span className="swatch swatch-booked" aria-hidden="true" /> {t("booking.legendBooked")}
             </p>
             {updated && <p className="booking-updated">{t("booking.updated")} {updated}</p>}
+
+            <BookingForm onBooked={() => setRefreshKey((k) => k + 1)} />
           </aside>
         </div>
       </div>

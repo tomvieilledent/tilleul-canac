@@ -4,6 +4,10 @@ export const BOOKING_URL =
   "https://www.booking.com/hotel/fr/chambre-d-39-hote-rodez.fr.html";
 export const BOOKING_REVIEWS_URL = BOOKING_URL + "#tab-reviews";
 
+// API de réservation (backend/). Vide -> pas de formulaire, calendrier en repli JSON statique.
+// Définie via .env / .env.production (VITE_API_URL=https://api.tilleul-canac.vlldnt.fr).
+export const API_URL = (import.meta.env.VITE_API_URL || "").replace(/\/$/, "");
+
 export const CONTACT = {
   address1: "270 chemin de Canac",
   address2: "12850 Onet-le-Château",

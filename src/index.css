@@ -537,6 +537,44 @@ p code, .note code {
 .swatch-booked { background: repeating-linear-gradient(-45deg, var(--day-booked-a), var(--day-booked-a) 3px, var(--day-booked-b) 3px, var(--day-booked-b) 6px); }
 .booking-updated { font-size: 0.8rem; color: var(--text-muted); margin: 12px 0 0; }
 
+.booking-form { margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--border); }
+.booking-form-divider {
+  margin: 0 0 12px;
+  text-align: center;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+}
+.booking-form h3 { margin: 0 0 4px; font-size: 1.15rem; }
+.booking-form-note { color: var(--text-muted); font-size: 0.85rem; margin: 0 0 14px; }
+.booking-form label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+.booking-form input {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  padding: 9px 10px;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.booking-form input:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
+.booking-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; }
+.booking-form-status { min-height: 1.2em; font-size: 0.85rem; margin: 10px 0 0; }
+.booking-form-status.is-done { color: var(--heading); }
+.booking-form-status.is-conflict, .booking-form-status.is-error { color: var(--accent); }
+
+@media (max-width: 480px) {
+  .booking-form-row { grid-template-columns: 1fr; }
+}
+
 /* ============ Reviews ============ */
 .reviews-badge {
   display: inline-flex;
