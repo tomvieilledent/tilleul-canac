@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useApp } from "../app/store.jsx";
-import { API_URL } from "../lib/site.js";
+import { API_URL, BOOKINGS_ENABLED } from "../lib/site.js";
 
 const EMPTY_FORM = { guest_name: "", email: "", phone: "", check_in: "", check_out: "" };
 
@@ -9,8 +9,9 @@ export default function BookingForm({ onBooked }) {
   const [form, setForm] = useState(EMPTY_FORM);
   const [state, setState] = useState({ status: "idle", message: "" });
 
-  // Pas d'API déployée -> pas de formulaire (le calendrier reste en lecture seule).
-  if (!API_URL) return null;
+  // Pas d'API déployée, ou réservations pas encore activées -> pas de formulaire
+  // (le calendrier reste en lecture seule).
+  if (!API_URL || !BOOKINGS_ENABLED) return null;
 
   const onChange = (e) => {
     const { name, value } = e.target;
@@ -53,6 +54,9 @@ export default function BookingForm({ onBooked }) {
     <form className="booking-form" onSubmit={onSubmit}>
       <p className="booking-form-divider" aria-hidden="true">
         {t("booking.form.orDivider")}
+      </p>
+      <p className="booking-form-test-notice" role="alert">
+        {t("booking.form.testNotice")}
       </p>
       <h3>{t("booking.form.title")}</h3>
       <p className="booking-form-note">{t("booking.form.note")}</p>

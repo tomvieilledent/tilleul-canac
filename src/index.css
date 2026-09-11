@@ -545,6 +545,17 @@ p code, .note code {
   letter-spacing: 0.03em;
   color: var(--text-muted);
 }
+.booking-form-test-notice {
+  margin: 0 0 14px;
+  padding: 10px 12px;
+  border: 1px solid #f0b429;
+  border-radius: 6px;
+  background: #fff8e1;
+  color: #7a4e00;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
 .booking-form h3 { margin: 0 0 4px; font-size: 1.15rem; }
 .booking-form-note { color: var(--text-muted); font-size: 0.85rem; margin: 0 0 14px; }
 .booking-form label {

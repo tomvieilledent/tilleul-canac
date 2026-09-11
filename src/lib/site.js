@@ -4,9 +4,16 @@ export const BOOKING_URL =
   "https://www.booking.com/hotel/fr/chambre-d-39-hote-rodez.fr.html";
 export const BOOKING_REVIEWS_URL = BOOKING_URL + "#tab-reviews";
 
-// API de réservation (backend/). Vide -> pas de formulaire, calendrier en repli JSON statique.
+// API de réservation (backend/). Vide -> calendrier en repli JSON statique.
 // Définie via .env / .env.production (VITE_API_URL=https://tilleul-canac-api.vlldnt.fr).
 export const API_URL = (import.meta.env.VITE_API_URL || "").replace(/\/$/, "");
+
+// Formulaire de réservation : distinct de API_URL pour pouvoir brancher le
+// calendrier sur l'API (lecture seule, test des dispos) sans exposer le
+// formulaire tant que l'iCal Booking.com et le paiement ne sont pas prêts.
+// Le serveur refuse aussi POST /api/bookings tant que BOOKINGS_ENABLED=false
+// (coupe-circuit indépendant, voir backend/config/settings.py).
+export const BOOKINGS_ENABLED = import.meta.env.VITE_ENABLE_BOOKING === "true";
 
 export const CONTACT = {
   address1: "270 chemin de Canac",

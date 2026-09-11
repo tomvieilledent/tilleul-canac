@@ -129,6 +129,8 @@ const fr = {
     dayBooked: "indisponible",
     updated: "Disponibilités mises à jour le",
     form: {
+      testNotice:
+        "⚠️ Site en test : ce formulaire n'est pas encore en service. Rien n'est réservé, rien n'est payé — ne considérez aucune confirmation ici comme une réservation réelle.",
       orDivider: "— ou envoyez une demande directe —",
       title: "Demande de réservation",
       note: "Pas de paiement en ligne pour le moment : nous confirmons votre demande par e-mail.",
@@ -139,7 +141,7 @@ const fr = {
       phone: "Téléphone (optionnel)",
       submit: "Envoyer la demande",
       sending: "Envoi…",
-      success: "Demande envoyée. Nous vous confirmons la réservation par e-mail sous peu.",
+      success: "Enregistré à titre de test uniquement — ceci n'est pas une réservation confirmée.",
       conflict: "Ces dates viennent d'être réservées. Merci d'en choisir d'autres.",
       error: "Une erreur est survenue. Réessayez ou contactez-nous directement.",
     },
@@ -308,6 +310,8 @@ const en = {
     dayBooked: "unavailable",
     updated: "Availability updated on",
     form: {
+      testNotice:
+        "⚠️ Test site: this form is not live yet. Nothing is booked, nothing is charged — do not treat any confirmation here as a real reservation.",
       orDivider: "— or send a direct request —",
       title: "Booking request",
       note: "No online payment yet: we confirm your request by email.",
@@ -318,7 +322,7 @@ const en = {
       phone: "Phone (optional)",
       submit: "Send request",
       sending: "Sending…",
-      success: "Request sent. We'll confirm your booking by email shortly.",
+      success: "Recorded for testing purposes only — this is not a confirmed booking.",
       conflict: "These dates were just booked. Please choose different ones.",
       error: "Something went wrong. Please try again or contact us directly.",
     },
@@ -487,6 +491,8 @@ const es = {
     dayBooked: "no disponible",
     updated: "Disponibilidad actualizada el",
     form: {
+      testNotice:
+        "⚠️ Sitio en pruebas: este formulario aún no está operativo. No se reserva ni se cobra nada — no considere ninguna confirmación aquí como una reserva real.",
       orDivider: "— o envíe una solicitud directa —",
       title: "Solicitud de reserva",
       note: "Sin pago en línea por ahora: confirmamos su solicitud por correo electrónico.",
@@ -497,7 +503,7 @@ const es = {
       phone: "Teléfono (opcional)",
       submit: "Enviar solicitud",
       sending: "Enviando…",
-      success: "Solicitud enviada. Confirmaremos su reserva por correo electrónico en breve.",
+      success: "Registrado solo con fines de prueba — esto no es una reserva confirmada.",
       conflict: "Esas fechas acaban de reservarse. Elija otras, por favor.",
       error: "Se ha producido un error. Inténtelo de nuevo o contáctenos directamente.",
     },
@@ -666,6 +672,8 @@ const de = {
     dayBooked: "belegt",
     updated: "Verfügbarkeit aktualisiert am",
     form: {
+      testNotice:
+        "⚠️ Testseite: Dieses Formular ist noch nicht in Betrieb. Es wird nichts gebucht, nichts bezahlt — betrachten Sie keine Bestätigung hier als echte Buchung.",
       orDivider: "— oder senden Sie eine direkte Anfrage —",
       title: "Buchungsanfrage",
       note: "Noch keine Online-Zahlung: Wir bestätigen Ihre Anfrage per E-Mail.",
@@ -676,7 +684,7 @@ const de = {
       phone: "Telefon (optional)",
       submit: "Anfrage senden",
       sending: "Wird gesendet…",
-      success: "Anfrage gesendet. Wir bestätigen Ihre Buchung in Kürze per E-Mail.",
+      success: "Nur zu Testzwecken erfasst — dies ist keine bestätigte Buchung.",
       conflict: "Diese Termine wurden soeben gebucht. Bitte wählen Sie andere.",
       error: "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt.",
     },
