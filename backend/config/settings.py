@@ -101,7 +101,7 @@ REST_FRAMEWORK = {
 
 CORS_ALLOWED_ORIGINS = env_list("CORS_ALLOWED_ORIGINS") or ["http://localhost:5173"]
 CSRF_TRUSTED_ORIGINS = env_list("CSRF_TRUSTED_ORIGINS") or [
-    "https://api.tilleul-canac.vlldnt.fr"
+    "https://tilleul-canac-api.vlldnt.fr"
 ]
 
 # Durée du blocage d'une réservation "pending" avant expiration automatique.

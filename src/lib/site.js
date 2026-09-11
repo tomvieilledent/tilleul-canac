@@ -5,7 +5,7 @@ export const BOOKING_URL =
 export const BOOKING_REVIEWS_URL = BOOKING_URL + "#tab-reviews";
 
 // API de réservation (backend/). Vide -> pas de formulaire, calendrier en repli JSON statique.
-// Définie via .env / .env.production (VITE_API_URL=https://api.tilleul-canac.vlldnt.fr).
+// Définie via .env / .env.production (VITE_API_URL=https://tilleul-canac-api.vlldnt.fr).
 export const API_URL = (import.meta.env.VITE_API_URL || "").replace(/\/$/, "");
 
 export const CONTACT = {
