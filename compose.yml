@@ -1,0 +1,14 @@
+# Runtime `compose` de l'orchestrateur vlldnt (portfolio/scripts/deploy-project.sh)
+# pour le FRONT (site vitrine). Le backend de réservation a son propre
+# compose.yml sous backend/ (déployé comme un projet distinct, tilleul-canac-api).
+# Port exposé UNIQUEMENT en loopback ; nginx (VPS) fait le proxy + les en-têtes
+# de sécurité/CSP (portfolio/deploy/nginx/app.compose.tmpl).
+services:
+  web:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:${PORT:-8085}:8080"
+    logging:
+      driver: json-file
+      options: { max-size: "10m", max-file: "3" }
