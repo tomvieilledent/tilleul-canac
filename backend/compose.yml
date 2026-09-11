@@ -1,33 +1,58 @@
+# Runtime `compose` de l'orchestrateur vlldnt (portfolio/scripts/deploy-project.sh) :
+# - secrets injectés via `docker compose --env-file /opt/vlldnt/config/<name>.env`
+#   (interpolation ${VAR} ci-dessous) ; en local, `docker compose` charge `.env`
+#   du même dossier de la même façon → mêmes services, mêmes variables.
+# - données Postgres sous ${PGDATA_DIR} (VPS : /opt/vlldnt/data/<name>/pg,
+#   jamais dans le code ; en local, repli sur ./.pgdata, gitignored).
+# - port du service web exposé UNIQUEMENT en loopback ; nginx fait le proxy.
 name: tilleul-canac-api
 
 services:
   db:
     image: postgres:16-alpine
+    restart: unless-stopped
     environment:
       POSTGRES_DB: ${POSTGRES_DB:-tdc}
       POSTGRES_USER: ${POSTGRES_USER:-tdc}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-tdc}
     volumes:
-      - db-data:/var/lib/postgresql/data
+      - ${PGDATA_DIR:-./.pgdata}:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-tdc}"]
       interval: 10s
       timeout: 3s
       retries: 5
-    restart: unless-stopped
+    logging:
+      driver: json-file
+      options: { max-size: "10m", max-file: "3" }
+    networks: [internal]
 
   web:
     build: .
-    env_file: .env
+    restart: unless-stopped
     depends_on:
       db:
         condition: service_healthy
+    environment:
+      DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY:-dev-insecure-key-change-me}
+      DJANGO_DEBUG: ${DJANGO_DEBUG:-false}
+      ALLOWED_HOSTS: ${ALLOWED_HOSTS:-localhost,127.0.0.1}
+      CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS:-http://localhost:5173}
+      CSRF_TRUSTED_ORIGINS: ${CSRF_TRUSTED_ORIGINS:-https://tilleul-canac-api.vlldnt.fr}
+      DATABASE_URL: ${DATABASE_URL:-postgres://tdc:tdc@db:5432/tdc}
+      BOOKING_ICAL_URL: ${BOOKING_ICAL_URL:-}
+      BOOKING_HOLD_MINUTES: ${BOOKING_HOLD_MINUTES:-2880}
     command: >
       sh -c "python manage.py migrate --noinput &&
              gunicorn config.wsgi:application --bind 0.0.0.0:8000 --workers 3 --access-logfile -"
     ports:
       - "127.0.0.1:${PORT:-8083}:8000"
-    restart: unless-stopped
+    logging:
+      driver: json-file
+      options: { max-size: "10m", max-file: "3" }
+    networks: [internal]
 
-volumes:
-  db-data:
+networks:
+  internal:
+    name: vlldnt-tilleul-canac-api
+    driver: bridge
