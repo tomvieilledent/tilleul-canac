@@ -66,31 +66,34 @@ h2{margin:0 0 10px;font-family:var(--serif);font-weight:600;font-size:clamp(1.55
 .stack{display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:0;list-style:none}
 .stack li{padding:7px 16px;border:1px solid var(--border);border-radius:999px;background:var(--card);font-size:.9rem}
 .final{text-align:center}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0 28px;margin:0}
+.facts div{padding:14px 0;border-top:1px solid var(--border)}
+.facts dt{font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+.facts dd{margin:4px 0 0;color:var(--text)}
+.card .k.ok{color:var(--ok)}.card .k.warn{color:var(--wip)}.card .k.full{color:#a4501a}.card .k.over{color:#a33a2a}.card .k.todo{color:var(--muted)}
+.card .k{font-weight:600}
 footer{padding:28px 0 40px;border-top:1px solid var(--border);font-size:.85rem;color:var(--muted)}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.badge i{animation:none}}
 </style>
 </head>
 <body>
-<header class="top"><div class="wrap"><a class="brand" href="./"><img src="./favicon.svg" alt="" width="30" height="30" />Le Tilleul de Canac</a><nav aria-label="Navigation principale"><a href="#projet">Le site</a><a href="#apercu">Aperçu</a><a href="#technique">Technique</a><a href="https://vlldnt.fr/">← vlldnt.fr</a></nav></div></header>
+<header class="top"><div class="wrap"><a class="brand" href="./"><img src="./favicon.svg" alt="" width="30" height="30" />Le Tilleul de Canac</a><nav aria-label="Navigation principale"><a href="#projet">Le projet</a><a href="#apercu">Aperçu</a><a href="#details">Détails</a><a href="#technique">Technique</a><a href="https://vlldnt.fr/">← vlldnt.fr</a></nav></div></header>
 <main>
-<section class="hero"><div class="wrap"><p class="badge live" style="--bc:var(--wip)"><i></i>Site en construction</p><h1>Le Tilleul de <em>Canac</em></h1><p class="lead">Site vitrine d&#x27;une chambre d&#x27;hôtes à Onet-le-Château, aux portes de Rodez : le lieu, la chambre, les environs et les disponibilités.</p><div class="cta-row"><a class="btn ghost" href="#apercu">Voir l'aperçu</a></div>
+<section class="hero"><div class="wrap"><p class="badge live" style="--bc:var(--wip)"><i></i>Site en construction</p><h1>Le Tilleul de <em>Canac</em></h1><p class="lead">Site vitrine d&#x27;une chambre d&#x27;hôtes à Onet-le-Château, aux portes de Rodez : le lieu, la chambre, les environs et les disponibilités.</p><div class="cta-row"><a class="btn primary" href="#apercu">Voir l&#x27;aperçu</a><a class="btn ghost" href="#projet">Découvrir le projet</a></div>
 <div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="./portfolio.png" width="1600" height="1000" alt="Page d&#x27;accueil du site : une maison de caractère avec volets blancs et le titre « Le Tilleul de Canac »." /></div></div></section>
-<section id="projet"><div class="wrap"><h2>Ce que contient le site</h2><p class="sub">Un site d&#x27;une page, pensé pour répondre vite aux questions d&#x27;un voyageur.</p>
-<div class="grid"><article class="card"><h3>La maison</h3><p>Présentation du lieu : une maison au calme, avec jardin et terrasse, à pied de la gare de Rodez.</p></article><article class="card"><h3>La chambre</h3><p>Chambre familiale jusqu&#x27;à 3 personnes : coin salon, salle de bains privative, kitchenette, petit-déjeuner.</p></article><article class="card"><h3>Les environs</h3><p>Distances utiles, carte du secteur et lieux à visiter autour de Rodez.</p></article><article class="card"><h3>Les disponibilités</h3><p>Calendrier synchronisé avec l&#x27;agenda Booking ; la réservation se finalise sur Booking.com.</p></article><article class="card"><h3>Avis des voyageurs</h3><p>Les avis les plus récents, repris de la page Booking de la chambre.</p></article><article class="card"><h3>Confort de lecture</h3><p>Sélecteur de langue, thème clair ou sombre, affichage adapté au téléphone.</p></article></div>
-</div></section>
-<section class="band" id="apercu"><div class="wrap"><h2>Aperçu</h2><p class="sub">Captures de la version actuelle.</p>
-<div class="gallery">
+<section id="projet"><div class="wrap"><h2>Le projet</h2><p class="sub">Un site d&#x27;une page, pensé pour répondre vite aux questions d&#x27;un voyageur.</p><div class="grid"><article class="card"><h3>La maison</h3><p>Présentation du lieu : une maison au calme, avec jardin et terrasse, à pied de la gare de Rodez.</p></article><article class="card"><h3>La chambre</h3><p>Chambre familiale jusqu&#x27;à 3 personnes : coin salon, salle de bains privative, kitchenette, petit-déjeuner.</p></article><article class="card"><h3>Les environs</h3><p>Distances utiles, carte du secteur et lieux à visiter autour de Rodez.</p></article><article class="card"><h3>Les disponibilités</h3><p>Calendrier synchronisé avec l&#x27;agenda Booking ; la réservation se finalise sur Booking.com.</p></article></div></div></section>
+<section class="band" id="apercu"><div class="wrap"><h2>Aperçu</h2><p class="sub">Captures de la version actuelle.</p><div class="gallery">
 <figure><img src="./shot-maison.jpg" loading="lazy" alt="Présentation de la maison avec une photo du jardin et de sa terrasse." /><figcaption>La maison et son jardin.</figcaption></figure>
 <figure><img src="./shot-chambre.jpg" loading="lazy" alt="Description de la chambre en quatre cartes et galerie de photos." /><figcaption>La chambre.</figcaption></figure>
 <figure><img src="./shot-environs.jpg" loading="lazy" alt="Distances à pied ou en voiture et carte du secteur avec Leaflet." /><figcaption>Les environs, avec une carte.</figcaption></figure>
 <figure><img src="./shot-disponibilites.jpg" loading="lazy" alt="Calendrier des dates libres et encart de réservation." /><figcaption>Les disponibilités.</figcaption></figure>
 <figure class="tall"><img src="./shot-mobile.jpg" loading="lazy" alt="Le site sur téléphone." /><figcaption>Version mobile.</figcaption></figure>
-</div>
-</div></section>
-<section id="technique"><div class="wrap"><h2>Technique</h2><p class="sub">Un front React, une carte interactive et un calendrier branché sur Booking.</p>
-<ul class="stack" aria-label="Technologies utilisées"><li>React</li><li>Vite</li><li>Leaflet</li><li>OpenStreetMap</li></ul>
-</div></section>
+</div></div></section>
+<section id="details"><div class="wrap"><h2>Autres fonctions</h2><p class="sub">Ce qui accompagne le contenu principal.</p><div class="grid"><article class="card"><h3>Avis des voyageurs</h3><p>Les avis les plus récents, repris de la page Booking de la chambre.</p></article><article class="card"><h3>Carte interactive</h3><p>Les lieux utiles du secteur sur une carte OpenStreetMap, avec Leaflet.</p></article><article class="card"><h3>Confort de lecture</h3><p>Sélecteur de langue, thème clair ou sombre, affichage adapté au téléphone.</p></article></div></div></section>
+<section class="band" id="infos"><div class="wrap"><h2>Fiche du projet</h2><dl class="facts" style="margin-top:22px"><div><dt>Rôle</dt><dd>Projet client — conception et développement</dd></div><div><dt>Stack</dt><dd>React · Vite · Leaflet</dd></div><div><dt>Statut</dt><dd>En construction</dd></div><div><dt>Accès</dt><dd>Pas encore de lien public</dd></div></dl></div></section>
+<section id="technique"><div class="wrap"><h2>Technique</h2><p class="sub">Un front React, une carte interactive et un calendrier branché sur Booking.</p><ul class="stack" aria-label="Technologies utilisées"><li>React</li><li>Vite</li><li>Leaflet</li><li>OpenStreetMap</li></ul></div></section>
+<section class="final band" style="border-bottom:0"><div class="wrap"><h2>Découvrir d&#x27;autres réalisations</h2><p class="sub" style="margin-inline:auto">Ce site est en construction : retrouvez mes autres projets sur le portfolio.</p><div class="cta-row"><a class="btn primary" href="https://vlldnt.fr/" rel="noopener">Voir les autres projets</a><a class="btn ghost" href="#apercu">Revenir à l&#x27;aperçu</a></div></div></section>
 </main>
 <footer><div class="wrap"><span>© Le Tilleul de Canac</span><a href="https://vlldnt.fr/">← Retour au portfolio</a></div></footer>
 </body>
