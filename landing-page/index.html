@@ -1,114 +1,91 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Le Tilleul de Canac — chambre d'hôtes en Aveyron</title>
-  <meta name="description" content="Le Tilleul de Canac, chambre d'hôtes en Aveyron, aux portes de Rodez. Site en préparation." />
-  <link rel="canonical" href="https://vlldnt.fr/tilleul-canac/" />
-  <link rel="icon" type="image/svg+xml" href="/tilleul-canac/favicon.svg" />
-  <link rel="apple-touch-icon" href="/tilleul-canac/favicon.svg" />
-  <meta name="robots" content="noindex" />
-  <meta name="theme-color" content="#f7f3ec" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#14171a" media="(prefers-color-scheme: dark)" />
-  <style>
-    :root {
-      --bg: #f7f3ec;
-      --surface: #fffdf9;
-      --text: #2b2b28;
-      --muted: #5c5c54;
-      --border: #ddd3c1;
-      --heading: #2d4632;
-      --accent: #8f4f16;
-      --font-serif: "Cormorant Garamond", "Iowan Old Style", Georgia, "Times New Roman", serif;
-      --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      color-scheme: light;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #14171a; --surface: #1e2327; --text: #e7e4db; --muted: #a9a99f;
-        --border: #333a3b; --heading: #a8ccac; --accent: #e39463;
-        color-scheme: dark;
-      }
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      min-height: 100dvh;
-      display: grid;
-      place-items: center;
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font-sans);
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-      padding: 24px;
-    }
-    main { max-width: 30rem; text-align: center; }
-
-    .leaf { width: 52px; height: 52px; margin: 0 auto; display: block; }
-
-    .eyebrow {
-      margin: 22px 0 0;
-      font-size: 0.78rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-    h1 {
-      margin: 10px 0 0;
-      font-family: var(--font-serif);
-      font-weight: 600;
-      font-size: clamp(2.2rem, 8vw, 3.2rem);
-      line-height: 1.1;
-      color: var(--heading);
-    }
-    p.note {
-      margin: 18px 0 0;
-      color: var(--muted);
-    }
-
-    .badge {
-      display: inline-block;
-      margin-top: 26px;
-      padding: 6px 14px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      background: var(--surface);
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    footer {
-      margin-top: 34px;
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Le Tilleul de Canac — site vitrine d&#x27;une chambre d&#x27;hôtes (en construction)</title>
+<meta name="description" content="Site vitrine d&#x27;une chambre d&#x27;hôtes en Aveyron : présentation, galerie et disponibilités. Projet client en cours de construction — React, Vite, Leaflet." />
+<link rel="canonical" href="https://vlldnt.fr/tilleul-canac/" />
+<link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+<link rel="apple-touch-icon" href="./favicon.svg" />
+<meta name="theme-color" content="#f7f3ec" />
+<style>
+:root{--bg:#f7f3ec;--surface:#fffdf9;--text:#2b2b28;--muted:#5c5c54;--rule:#ddd3c1;--accent:#8f4f16;--accent-ink:#ffffff;--head:#2d4632;
+--sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;color-scheme:light}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}a:hover{text-underline-offset:3px}
+img{display:block;max-width:100%;height:auto}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+.wrap{max-width:68rem;margin:0 auto;padding:0 24px}
+.bar{border-bottom:1px solid var(--rule)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:60px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--head);font-weight:650;letter-spacing:-.01em;text-decoration:none}
+.brand img{width:26px;height:26px;border-radius:6px}
+.bar nav{display:flex;gap:22px;font-size:.9rem}
+.bar nav a{color:var(--muted);text-decoration:none}.bar nav a:hover{color:var(--head);text-decoration:underline}
+@media(max-width:620px){.bar nav a:not(.back){display:none}}
+.hero{padding:clamp(40px,7vw,88px) 0 clamp(32px,6vw,72px)}
+.hero .wrap{display:grid;gap:clamp(28px,5vw,56px);align-items:center;grid-template-columns:1fr}
+@media(min-width:900px){.hero .wrap{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}}
+.eyebrow{margin:0 0 14px;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1{margin:0;font-family:var(--serif);font-weight:600;font-size:clamp(2.3rem,5.6vw,3.7rem);line-height:1.06;letter-spacing:-.025em;color:var(--head)}
+.lead{margin:20px 0 0;max-width:34rem;font-size:clamp(1.02rem,1.9vw,1.15rem);color:var(--muted)}
+.actions{margin:28px 0 0;display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
+.btn{display:inline-block;padding:11px 20px;border-radius:6px;background:var(--accent);color:var(--accent-ink);font-weight:600;font-size:.95rem;text-decoration:none}
+.btn:hover{filter:brightness(1.08)}
+.link{font-weight:600;font-size:.95rem}
+.shot{margin:0;border:1px solid var(--rule);border-radius:8px;overflow:hidden;background:var(--surface)}
+section.s{padding:clamp(36px,6vw,68px) 0;border-top:1px solid var(--rule)}
+.cols{display:grid;gap:clamp(24px,5vw,64px);grid-template-columns:1fr}
+@media(min-width:820px){.cols{grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr)}}
+h2{margin:0;font-family:var(--serif);font-weight:600;font-size:clamp(1.4rem,3vw,1.85rem);line-height:1.2;letter-spacing:-.015em;color:var(--head)}
+.prose{margin:0;color:var(--muted);max-width:38rem}
+.prose+.prose{margin-top:14px}
+dl{margin:0;display:grid;grid-template-columns:minmax(7rem,.35fr) 1fr;gap:0}
+dt,dd{margin:0;padding:11px 0;border-top:1px solid var(--rule)}
+dt{font-size:.85rem;color:var(--muted)}dd{font-size:.97rem}
+dl>:nth-last-child(-n+2){border-bottom:1px solid var(--rule)}
+ol.items,ul.items{list-style:none;margin:0;padding:0;display:grid;gap:0 clamp(24px,5vw,56px);grid-template-columns:1fr}
+@media(min-width:760px){ol.items,ul.items{grid-template-columns:1fr 1fr}}
+.items li{padding:18px 0;border-top:1px solid var(--rule)}
+.items h3{margin:0;font-size:1.02rem;font-weight:650;color:var(--head);letter-spacing:-.005em}
+.items p{margin:6px 0 0;color:var(--muted);font-size:.96rem}
+.items .n{display:block;margin-bottom:4px;font-size:.78rem;font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums}
+@media(min-width:760px){.gallery{grid-template-columns:1fr 1fr}.gallery figure:last-child{grid-column:1}}
+.gallery{display:grid;gap:22px;grid-template-columns:1fr}
+.gallery figure{margin:0}.gallery img{border:1px solid var(--rule);border-radius:8px;background:var(--surface)}
+.gallery img[src$="mobile.jpg"]{max-width:300px}
+.gallery figcaption{margin-top:8px;font-size:.88rem;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+th,td{text-align:left;padding:11px 12px 11px 0;border-top:1px solid var(--rule);vertical-align:top}
+th{font-weight:600;color:var(--muted);font-size:.8rem;letter-spacing:.04em;text-transform:uppercase}
+tr:last-child td{border-bottom:1px solid var(--rule)}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.st{font-weight:600}
+.st.ok{color:#2f6b3b}.st.warn{color:#8a5a00}.st.full{color:#a4501a}.st.over{color:#a33a2a}
+footer{border-top:1px solid var(--rule);padding:24px 0 36px;font-size:.88rem;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
 </head>
 <body>
-  <main>
-    <svg class="leaf" viewBox="0 0 64 64" aria-hidden="true">
-      <path fill="#3a5a40" d="M32 5c7 8 19 12 22 26 2 11-9 19-16 20-3 .5-5-2-6-5-1 3-3 5.5-6 5-7-1-18-9-16-20C6.9 17 25 13 32 5Z"/>
-      <g fill="none" stroke="#dff0e0" stroke-width="2" stroke-linecap="round">
-        <path d="M32 46V10"/>
-        <path d="M32 22 46 14M32 22 19 15M32 31 49 24M32 31 16 25M32 39 44 34M32 39 21 33"/>
-      </g>
-      <path fill="none" stroke="#7a5230" stroke-width="3.2" stroke-linecap="round" d="M32 46c0 6 0 9 1 15"/>
-    </svg>
-
-    <p class="eyebrow">Chambre d'hôtes · Aveyron</p>
-    <h1>Le Tilleul de Canac</h1>
-    <p class="note">
-      Une chambre au calme, aux portes de Rodez.
-      Le site est en cours de préparation.
-    </p>
-
-    <span class="badge">Site en construction</span>
-
-    <footer>© Le Tilleul de Canac</footer>
-  </main>
+<header class="bar"><div class="wrap"><a class="brand" href="./"><img src="./favicon.svg" alt="" width="26" height="26" />Le Tilleul de Canac</a><nav aria-label="Navigation"><a href="#projet">Le projet</a><a href="#contenu">Contenu</a><a class="back" href="https://vlldnt.fr/">← vlldnt.fr</a></nav></div></header>
+<main>
+<section class="hero"><div class="wrap"><div><p class="eyebrow">Chambre d&#x27;hôtes · Aveyron</p><h1>Le Tilleul de Canac</h1><p class="lead">Une chambre au calme, aux portes de Rodez. Le site est en cours de préparation.</p></div>
+<figure class="shot"><img src="./portfolio.png" width="1918" height="934" alt="Page d&#x27;accueil du site du Tilleul de Canac : une halte paisible entre ville et campagne, avec une photo de la maison et du jardin." /></figure></div></section>
+<section class="s" id="projet"><div class="wrap cols"><div><h2>Le projet</h2></div><div>
+<p class="prose">Site vitrine d&#x27;une chambre d&#x27;hôtes en Aveyron, pensé pour présenter le lieu simplement et permettre aux visiteurs de vérifier les disponibilités.</p>
+<p class="prose">Le site est en cours de construction ; cette page présente son état actuel.</p>
+<dl style="margin-top:26px"><dt>Rôle</dt><dd>Projet client — conception et développement</dd><dt>Stack</dt><dd>React · Vite · Leaflet</dd><dt>Statut</dt><dd><strong>En construction</strong></dd></dl></div></div></section>
+<section class="s" id="contenu"><div class="wrap cols"><div><h2>Contenu prévu</h2></div><div>
+<ul class="items">
+<li><span class="n">01</span><h3>Présentation</h3><p>Le lieu et la chambre.</p></li>
+<li><span class="n">02</span><h3>Galerie</h3><p>Photos du lieu.</p></li>
+<li><span class="n">03</span><h3>Disponibilités</h3><p>Les périodes libres, avec une carte du secteur.</p></li>
+</ul>
+</div></div></section>
+</main>
+<footer><div class="wrap"><span>© Le Tilleul de Canac</span><a href="https://vlldnt.fr/">← Retour au portfolio</a></div></footer>
 </body>
 </html>
